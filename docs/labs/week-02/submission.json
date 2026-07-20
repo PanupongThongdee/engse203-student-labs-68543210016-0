@@ -5,7 +5,7 @@
   "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-lab02-68543210016-0.git",
   "originalCommit": "d643bd0",
   "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/2",
-  "submissionTag": "lab02-submission",
+  "submissionTag": "lab-02-submission-v1",
   "testStatus": "pass",
   "notes": "นำ Vite build output ที่มี index.html เข้า publish/",
   "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016-0/labs/week-02/",
