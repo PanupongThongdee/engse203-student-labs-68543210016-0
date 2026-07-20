@@ -3,9 +3,9 @@
   "title": "Developer Environment & GitHub Repository Setup",
   "status": "ready",
   "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-lab01--68543210016-0.git",
-  "originalCommit": "",
+  "originalCommit": "7e52641",
   "pullRequestUrl": "",
-  "submissionTag": "",
-  "testStatus": "not-tested",
+  "submissionTag": "lab01-submission",
+  "testStatus": "pass",
   "notes": "LAB 1 ใช้ evidence report ได้โดยไม่ต้องมี web application"
 }
