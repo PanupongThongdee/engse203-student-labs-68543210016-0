@@ -27,21 +27,21 @@
     "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016/labs/week-02/",
     "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016/tree/lab/week-02/labs/week-02/source",
     "hasPublish": true,
-    "sourceEntries": 12
+    "sourceEntries": 11
   },
   {
     "week": "week-03",
     "title": "Responsive Web UI & Form Interaction",
-    "status": "draft",
-    "originalRepoUrl": "",
-    "originalCommit": "",
-    "pullRequestUrl": "",
-    "submissionTag": "",
-    "testStatus": "not-tested",
+    "status": "submitted",
+    "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-lab03-68543210016.git",
+    "originalCommit": "df10015",
+    "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/3",
+    "submissionTag": "lab03-submission",
+    "testStatus": "pass",
     "notes": "Static site ต้องมี index.html ที่ publish root",
     "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016/labs/week-03/",
     "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016/tree/lab/week-03/labs/week-03/source",
-    "hasPublish": false,
-    "sourceEntries": 0
+    "hasPublish": true,
+    "sourceEntries": 15
   }
 ]
