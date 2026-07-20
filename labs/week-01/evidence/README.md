@@ -1,3 +1,25 @@
+<!-- # Week 01 Evidence
+
+ใส่ screenshots, test output หรือ reflection ที่ไม่ใช่ข้อมูลลับ แล้วอ้างชื่อไฟล์ใน `../README.md` -->
+
+
 # Week 01 Evidence
 
-ใส่ screenshots, test output หรือ reflection ที่ไม่ใช่ข้อมูลลับ แล้วอ้างชื่อไฟล์ใน `../README.md`
+## 1. Environment Versions
+![Hello execution](./Screenshot%202026-07-20%20101331.png)
+
+---
+
+## 2. Screenshot Programs
+![Hello execution](./Screenshot-2026-07-13-145831.png)
+
+---
+
+## 3. Repository Info
+- **Original Repository URL:** https://github.com/PanupongThongdee/engse203-lab01
+- **Commit SHA:** dc25494 *(ใส่เลข Commit SHA ของคุณ)*
+
+---
+
+## 4. Reflection
+ใน Lab นี้ใช้ Git workflow โดยเริ่มจากการ clone repository มาที่เครื่อง local จากนั้นสร้าง branch หรือ commit บันทึกการเปลี่ยนแปลงข้อมูลนักศึกษาและรันการ setup สคริปต์ แล้วจึง push โค้ดกลับไปยัง GitHub main branch เพื่อทำการสร้าง GitHub Pages อัตโนมัติ
