@@ -2,12 +2,12 @@
   {
     "week": "week-01",
     "title": "Developer Environment & GitHub Repository Setup",
-    "status": "ready",
+    "status": "draft",
     "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-lab01--68543210016-0.git",
     "originalCommit": "7e52641",
     "pullRequestUrl": "",
     "submissionTag": "lab01-submission",
-    "testStatus": "pass",
+    "testStatus": "not-tested",
     "notes": "LAB 1 ใช้ evidence report ได้โดยไม่ต้องมี web application",
     "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016/labs/week-01/",
     "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016/tree/lab/week-01/labs/week-01/source",
@@ -27,7 +27,7 @@
     "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016/labs/week-02/",
     "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016/tree/lab/week-02/labs/week-02/source",
     "hasPublish": false,
-    "sourceEntries": 0
+    "sourceEntries": 10
   },
   {
     "week": "week-03",
