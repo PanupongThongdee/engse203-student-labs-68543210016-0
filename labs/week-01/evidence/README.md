@@ -6,12 +6,12 @@
 # Week 01 Evidence
 
 ## 1. Environment Versions
-![Hello execution](./Screenshot%202026-07-20%20101331.png)
+![Hello execution](./Screenshot 202026-07-20 20101331.png)
 
 ---
 
 ## 2. Screenshot Programs
-![Hello execution](./Screenshot-2026-07-13-145831.png)
+![Hello execution](./Screenshot 2026-07-13 145831.png)
 
 ---
 
