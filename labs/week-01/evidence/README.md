@@ -11,14 +11,13 @@
 ---
 
 ## 2. Screenshot Programs
-![Hello execution](./Screenshot 2026-07-13 145831.png)
+![Hello execution](./Screenshot-2026-07-13-145831.png)
 
 ---
 
 ## 3. Repository Info
-- **Original Repository URL:** https://github.com/PanupongThongdee/engse203-lab01
-- **Commit SHA: a4c9b66
- 
+- **Original Repository URL:** https://github.com/PanupongThongdee/engse203-lab01--68543210016-0.git
+- **Commit SHA:** 7e52641
 
 ---
 
