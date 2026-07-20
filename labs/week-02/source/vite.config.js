@@ -1,3 +1,5 @@
+import { defineConfig } from "vite";
+
 const repositoryName = "engse203-student-labs-68543210016-0";
 
 export default defineConfig({
