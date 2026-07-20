@@ -11,7 +11,7 @@
 *คำอธิบายภาพ: หน้าจอทดสอบการค้นหา/กรองข้อมูล และระบบตรวจสอบข้อผิดพลาด*
 
 ### Mobile Responsive Design
-![Mobile Interface](../../../image/Responsive.png)
+![Mobile Interface](Screenshot%202026-07-21%20013700.png)
 *คำอธิบายภาพ: การแสดงผลสไตล์ mobile-first บนขนาดหน้าจอสมาร์ทโฟน*
 
 ---
@@ -19,5 +19,5 @@
 ## 2. ผลการรันตรวจสอบสภาพแวดล้อม (Build Terminal Logs)
 
 ### npm run build
-![npmrunbuild](./Screenshot%202026-07-21%20013700.png)
+![npmrunbuild]()
 *คำอธิบายภาพ: npm run build*
