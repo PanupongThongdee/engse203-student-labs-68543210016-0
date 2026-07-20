@@ -1,11 +1,11 @@
 {
   "week": "week-03",
   "title": "Responsive Web UI & Form Interaction",
-  "status": "draft",
+  "status": "submitted",
   "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-lab03-68543210016.git",
   "originalCommit": "df10015",
-  "pullRequestUrl": "",
-  "submissionTag": "lab03-submission",
+  "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/3",
+  "submissionTag": "lab-03-submission-v1",
   "testStatus": "pass",
   "notes": "Static site ต้องมี index.html ที่ publish root"
 }
