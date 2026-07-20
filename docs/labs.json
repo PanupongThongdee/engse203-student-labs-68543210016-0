@@ -5,14 +5,14 @@
     "status": "submitted",
     "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-lab01--68543210016-0.git",
     "originalCommit": "7e52641",
-    "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/2",
-    "submissionTag": "lab01-submission",
+    "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/1",
+    "submissionTag": "lab-01-submission-v1",
     "testStatus": "pass",
     "notes": "LAB 1 ใช้ evidence report ได้โดยไม่ต้องมี web application",
     "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016/labs/week-01/",
     "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016/tree/lab/week-01/labs/week-01/source",
     "hasPublish": false,
-    "sourceEntries": 3
+    "sourceEntries": 4
   },
   {
     "week": "week-02",
@@ -36,12 +36,12 @@
     "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-lab03-68543210016.git",
     "originalCommit": "df10015",
     "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/3",
-    "submissionTag": "lab03-submission",
+    "submissionTag": "lab-03-submission-v1",
     "testStatus": "pass",
     "notes": "Static site ต้องมี index.html ที่ publish root",
     "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016/labs/week-03/",
     "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016/tree/lab/week-03/labs/week-03/source",
     "hasPublish": true,
-    "sourceEntries": 15
+    "sourceEntries": 8
   }
 ]
