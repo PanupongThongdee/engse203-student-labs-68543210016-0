@@ -41,7 +41,7 @@ npm run dev
 npm run build
 
 
-
+```bash
 .
 ├── docs/
 ├── node_modules/
@@ -55,7 +55,7 @@ npm run build
 ├── package.json
 ├── README.md
 └── vite.config.js
-
+```
 
 
 
@@ -92,6 +92,8 @@ GitHub Pages URL: https://panupongthongdee.github.io/engse203-lab03-68543210016/
 
 
 🧩 ปัญหาที่พบและวิธีแก้ไข
+
+
 ปัญหาที่ 1: โครงสร้างโฟลเดอร์ซ้อนและการกำหนด Base Path สำหรับ GitHub Pages ไม่ถูกต้อง
 สาเหตุ: ในตอนแรก โครงสร้างไฟล์และโฟลเดอร์หลักของโปรเจกต์ (เช่น src, index.html, package.json) ถูกสร้างซ้อนอยู่ภายในโฟลเดอร์ย่อย my-vanilla-app อีกชั้นหนึ่ง ส่งผลให้เมื่อสั่งรัน npm run build ระบบไม่สามารถตรวจพบคำสั่งบิวด์ที่ชั้นนอกสุด (เกิดข้อผิดพลาด npm error code ENOENT) และเมื่อนำไป Deploy บน GitHub Pages ตัวเว็บพยายามจะวิ่งไปหาไฟล์ Assets ที่เส้นทาง /my-vanilla-app/assets/ ซึ่งไม่มีอยู่จริง ทำให้เกิดข้อผิดพลาด 404 (Not Found) และหน้าเว็บแสดงผลเป็นหน้าขาวว่างเปล่า
 
