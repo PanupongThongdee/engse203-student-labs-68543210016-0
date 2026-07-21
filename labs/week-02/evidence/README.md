@@ -19,5 +19,5 @@
 ## 2. ผลการรันตรวจสอบสภาพแวดล้อม (Build Terminal Logs)
 
 ### npm run build
-![npmrunbuild]()
+![npmrunbuild](./Screenshot%202026-07-21%20114816.png)
 *คำอธิบายภาพ: npm run build*
