@@ -10,9 +10,11 @@ npm --prefix labs/week-02/source run build
 ```
 แก้ Vite base ให้ตรงกับ subpath ก่อน build:
 
+```bash
 /engse203-student-labs-<student-id>/labs/week-02/
+```
 นำ build output เข้า publish:
-
+```bash
 npm run import:publish -- week-02 labs/week-02/source/docs
-
+```
 หากโครงงานเดิม build ไป dist/ ให้เปลี่ยน path ท้ายคำสั่งเป็น labs/week-02/source/dist
