@@ -5,7 +5,7 @@
 - `desktop.png`
 - `mobile-375.png`
 - `validation.png`
-- `empty-state.png`
+- `tc-07-empty.png`
 - `pages-incognito.png`
 
 เชื่อมชื่อไฟล์เหล่านี้ใน README หลักของ repository นักศึกษา

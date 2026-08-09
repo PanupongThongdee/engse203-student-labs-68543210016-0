@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import AppHeader from './components/AppHeader.jsx';
 import SummaryPanel from './components/SummaryPanel.jsx';
 import RequestForm from './components/RequestForm.jsx';
@@ -6,34 +7,46 @@ import RequestList from './components/RequestList.jsx';
 import { initialRequests } from './data/initialRequests.js';
 
 function App() {
-  // TODO LAB4-R04: เปลี่ยน requests/statusFilter เป็น state
-  const requests = initialRequests;
-  const statusFilter = 'all';
+  // LAB4-R04: requests/statusFilter เป็น state ของ App (single source of truth)
+  const [requests, setRequests] = useState(initialRequests);
+  const [statusFilter, setStatusFilter] = useState('all');
 
-  // TODO LAB4-R04: คำนวณ summary เป็น derived data
+  // LAB4-R04: summary เป็น derived data คำนวณจาก requests จริงทุกครั้งที่ render
   const summary = {
     total: requests.length,
-    pending: 0,
-    inProgress: 0,
-    completed: 0,
+    pending: requests.filter((request) => request.status === 'pending').length,
+    inProgress: requests.filter((request) => request.status === 'in-progress').length,
+    completed: requests.filter((request) => request.status === 'completed').length,
   };
 
-  // TODO LAB4-R08: คำนวณ filteredRequests จาก requests + statusFilter
-  const filteredRequests = requests;
+  // LAB4-R08: filteredRequests คำนวณจาก requests + statusFilter (ไม่ mutate requests เดิม)
+  const filteredRequests =
+    statusFilter === 'all'
+      ? requests
+      : requests.filter((request) => request.status === statusFilter);
 
-  function handleAddRequest(requestData) {
-    console.log('TODO add request', requestData);
-  }
+  // LAB4-R07 / LAB4-R13: เพิ่ม request ใหม่แบบ immutable ด้วย spread, ไม่แก้ array/object เดิม
+ function handleAddRequest(requestData) {
+  const newRequest = {
+    id: `REQ-${Date.now().toString().slice(-3)}`, // แปลงเป็น String แล้วตัดเอาเฉพาะ 4 หลักสุดท้าย
+    ...requestData,
+    status: 'pending',
+  };
+  setRequests((currentRequests) => [newRequest, ...currentRequests]);
+}
 
+  // LAB4-R10: รับ id ผ่าน callback จาก child แล้วลบด้วย filter() แบบ immutable
   function handleDeleteRequest(requestId) {
-    console.log('TODO delete request', requestId);
+    setRequests((currentRequests) =>
+      currentRequests.filter((request) => request.id !== requestId),
+    );
   }
 
   return (
     <>
       <AppHeader
         title="Campus Service Request"
-        subtitle="LAB 4 Starter — เปลี่ยน DOM-driven UI เป็น State-driven React UI"
+        subtitle="LAB 4 — State-driven React UI สำหรับคำร้องบริการภายในมหาวิทยาลัย"
       />
       <main className="container page-content">
         <SummaryPanel summary={summary} />
@@ -42,7 +55,7 @@ function App() {
           <section className="panel" aria-labelledby="request-list-title">
             <div className="section-heading">
               <h2 id="request-list-title">รายการคำร้อง</h2>
-              <FilterBar value={statusFilter} onFilterChange={() => {}} />
+              <FilterBar value={statusFilter} onFilterChange={setStatusFilter} />
             </div>
             <RequestList
               requests={filteredRequests}
@@ -56,4 +69,3 @@ function App() {
 }
 
 export default App;
-
