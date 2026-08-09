@@ -1,40 +1,66 @@
 import { useState } from 'react';
 import AppHeader from './components/AppHeader.jsx';
 import SummaryPanel from './components/SummaryPanel.jsx';
-import TaskForm from './components/TaskForm.jsx';
+import RequestForm from './components/RequestForm.jsx';
 import FilterBar from './components/FilterBar.jsx';
-import TaskList from './components/TaskList.jsx';
-import { initialTasks } from './data/initialTasks.js';
+import RequestList from './components/RequestList.jsx';
+import { initialRequests } from './data/initialRequests.js';
 
 function App() {
-  const [tasks, setTasks] = useState(initialTasks);
+  // LAB4-R04: requests/statusFilter เป็น state ของ App (single source of truth)
+  const [requests, setRequests] = useState(initialRequests);
   const [statusFilter, setStatusFilter] = useState('all');
-  const summary = {
-    total: tasks.length,
-    todo: tasks.filter((task) => task.status === 'todo').length,
-    doing: tasks.filter((task) => task.status === 'doing').length,
-    done: tasks.filter((task) => task.status === 'done').length,
-  };
-  const filteredTasks = statusFilter === 'all' ? tasks : tasks.filter((task) => task.status === statusFilter);
 
-  function handleAddTask(taskData) {
-    const newTask = { id: `TASK-${Date.now()}`, ...taskData, status: 'todo' };
-    setTasks((currentTasks) => [newTask, ...currentTasks]);
-  }
-  function handleDeleteTask(taskId) {
-    setTasks((currentTasks) => currentTasks.filter((task) => task.id !== taskId));
+  // LAB4-R04: summary เป็น derived data คำนวณจาก requests จริงทุกครั้งที่ render
+  const summary = {
+    total: requests.length,
+    pending: requests.filter((request) => request.status === 'pending').length,
+    inProgress: requests.filter((request) => request.status === 'in-progress').length,
+    completed: requests.filter((request) => request.status === 'completed').length,
+  };
+
+  // LAB4-R08: filteredRequests คำนวณจาก requests + statusFilter (ไม่ mutate requests เดิม)
+  const filteredRequests =
+    statusFilter === 'all'
+      ? requests
+      : requests.filter((request) => request.status === statusFilter);
+
+  // LAB4-R07 / LAB4-R13: เพิ่ม request ใหม่แบบ immutable ด้วย spread, ไม่แก้ array/object เดิม
+ function handleAddRequest(requestData) {
+  const newRequest = {
+    id: `REQ-${Date.now().toString().slice(-3)}`, // แปลงเป็น String แล้วตัดเอาเฉพาะ 4 หลักสุดท้าย
+    ...requestData,
+    status: 'pending',
+  };
+  setRequests((currentRequests) => [newRequest, ...currentRequests]);
+}
+
+  // LAB4-R10: รับ id ผ่าน callback จาก child แล้วลบด้วย filter() แบบ immutable
+  function handleDeleteRequest(requestId) {
+    setRequests((currentRequests) =>
+      currentRequests.filter((request) => request.id !== requestId),
+    );
   }
 
   return (
     <>
-      <AppHeader title="Study Task Board" subtitle="CP05 — Callback delete และ Conditional Rendering" />
+      <AppHeader
+        title="Campus Service Request"
+        subtitle="LAB 4 — State-driven React UI สำหรับคำร้องบริการภายในมหาวิทยาลัย"
+      />
       <main className="container page-content">
         <SummaryPanel summary={summary} />
         <div className="workspace-grid">
-          <TaskForm onAddTask={handleAddTask} />
-          <section className="panel">
-            <FilterBar value={statusFilter} onFilterChange={setStatusFilter} />
-            <TaskList tasks={filteredTasks} onDeleteTask={handleDeleteTask} />
+          <RequestForm onAddRequest={handleAddRequest} />
+          <section className="panel" aria-labelledby="request-list-title">
+            <div className="section-heading">
+              <h2 id="request-list-title">รายการคำร้อง</h2>
+              <FilterBar value={statusFilter} onFilterChange={setStatusFilter} />
+            </div>
+            <RequestList
+              requests={filteredRequests}
+              onDeleteRequest={handleDeleteRequest}
+            />
           </section>
         </div>
       </main>
