@@ -58,24 +58,23 @@ npm run preview
 
 | Test ID | Actual Result | Pass/Fail | Evidence/Screenshot |
 |---|---|---|---|
-| TC-01     Initial          | แอปพลิเคชันโหลดและแสดงผล Component หลักครบถ้วนพร้อมข้อมูลเริ่มต้น | Pass | evidence/tc-01-initial.png |
-| TC-02 Controlled input | Input ทุกตัวในฟอร์มตอบสนองการพิมพ์และการเลือกค่าตาม State ได้อย่างถูกต้อง | Pass | evidence/tc-02-controlled.png |
-| TC-03 Invalid          | แสดงข้อความ Error ใต้ Field เมื่อข้อมูลไม่ครบ และระงับการ Submit | Pass | evidence/tc-03-invalid.png |
-| TC-04 Valid add        | เพิ่มคำร้องใหม่สำเร็จ รายการขึ้นบนสุดพร้อมสถานะ pending และล้างฟอร์มเรียบร้อย | Pass | evidence/tc-04-valid-add.png |
-| TC-05 Filter           | การ์ดคำร้องแสดงผลตรงตามสถานะที่เลือกกรอง (เช่น pending, in-progress) | Pass | evidence/tc-05-filter.png |
-| TC-06 All              | เมื่อเลือกตัวกรองทั้งหมด ระบบแสดงคำร้องทุกสถานะได้อย่างถูกต้อง                 | Pass      | evidence/tc-06-all.png  |
-| TC-07 Empty            | เมื่อไม่มีรายการตามตัวกรอง ระบบแสดงข้อความ Empty State อย่างถูกต้อง           | Pass      | evidence/tc-07-empty.png |
-| TC-08 Delete           | สามารถลบคำร้องได้ถูกต้องตาม ID และรายการรวมถึง Summary อัปเดตถูกต้อง           | Pass      | evidence/tc-08-delete.png |
-| TC-09 Mobile           | หน้าเว็บแสดงผลที่ความกว้าง 375px ได้โดยไม่มี Horizontal Scroll               | Pass      | evidence/tc-09-mobile.png  |
-| TC-10 Keyboard         | สามารถใช้ Keyboard ผ่าน Tab และ Enter ได้ พร้อมแสดง Focus, Error และ Feedback | Pass      | evidence/tc-10-keyboard.png |
-| TC-11 Build            | สามารถรัน npm run build และเปิด Preview ได้สำเร็จโดยไม่มี Build Error          | Pass      | evidence/tc-11-build.png    |
-| TC-12 Pages             | เปิดหน้าเว็บผ่าน Incognito และโหลด Pages รวมถึง Assets ได้ครบถ้วน              | Pass      | evidence/tc-12-pages.png  |
-
+| TC-01 Initial | แอปพลิเคชันโหลดและแสดงผล Component หลักครบถ้วนพร้อมข้อมูลเริ่มต้น | Pass | <img src="evidence/tc-01-initial.png" alt="TC-01 Initial" width="500"> |
+| TC-02 Controlled input | Input ทุกตัวในฟอร์มตอบสนองการพิมพ์และการเลือกค่าตาม State ได้อย่างถูกต้อง | Pass | <img src="evidence/tc-02-controlled.png" alt="TC-02 Controlled Input" width="500"> |
+| TC-03 Invalid | แสดงข้อความ Error ใต้ Field เมื่อข้อมูลไม่ครบ และระงับการ Submit | Pass | <img src="evidence/tc-03-invalid.png" alt="TC-03 Invalid" width="500"> |
+| TC-04 Valid add | เพิ่มคำร้องใหม่สำเร็จ รายการขึ้นบนสุดพร้อมสถานะ pending และล้างฟอร์มเรียบร้อย | Pass | <img src="evidence/tc-04-valid-add.png" alt="TC-04 Valid Add" width="500"> |
+| TC-05 Filter | การ์ดคำร้องแสดงผลตรงตามสถานะที่เลือกกรอง เช่น pending, in-progress | Pass | <img src="evidence/tc-05-filter.png" alt="TC-05 Filter" width="500"> |
+| TC-06 All | เมื่อเลือกตัวกรองทั้งหมด ระบบแสดงคำร้องทุกสถานะได้อย่างถูกต้อง | Pass | <img src="evidence/tc-06-all.png" alt="TC-06 All" width="500"> |
+| TC-07 Empty | เมื่อไม่มีรายการตามตัวกรอง ระบบแสดงข้อความ Empty State อย่างถูกต้อง | Pass | <img src="evidence/tc-07-empty.png" alt="TC-07 Empty" width="500"> |
+| TC-08 Delete | สามารถลบคำร้องได้ถูกต้องตาม ID และรายการรวมถึง Summary อัปเดตถูกต้อง | Pass | <img src="evidence/tc-08-delete.png" alt="TC-08 Delete" width="500"> |
+| TC-09 Mobile | หน้าเว็บแสดงผลที่ความกว้าง 375px ได้โดยไม่มี Horizontal Scroll | Pass | <img src="evidence/tc-09-mobile.png" alt="TC-09 Mobile" width="500"> |
+| TC-10 Keyboard | สามารถใช้ Keyboard ผ่าน Tab และ Enter ได้ พร้อมแสดง Focus, Error และ Feedback | Pass | <img src="evidence/tc-10-keyboard.png" alt="TC-10 Keyboard" width="500"> |
+| TC-11 Build | สามารถรัน npm run build และเปิด Preview ได้สำเร็จโดยไม่มี Build Error | Pass | <img src="evidence/tc-11-build.png" alt="TC-11 Build" width="500"> |
+| TC-12 Pages | เปิดหน้าเว็บผ่าน Incognito และโหลดหน้าเว็บรวมถึง Assets ได้ครบถ้วน | Pass | <img src="evidence/tc-12-pages.png" alt="TC-12 Pages" width="500"> |
 ## Screenshots
 
-- Desktop: `evidence/desktop.png`
-- Mobile 375px: `evidence/mobile-375.png`
-- Validation/empty state: `evidence/tc-07-empty.png`
+- Desktop:  <img src="evidence/desktop.png" alt="TC-01 Initial" width="500">
+- Mobile 375px: <img src="evidence/mobile-375.png" alt="TC-01 Initial" width="500">
+- Validation/empty state: <img src="evidence/tc-07-empty.png" alt="TC-07 Empty" width="500">
 
 ## Week 03 → Week 04 Reflection
 
