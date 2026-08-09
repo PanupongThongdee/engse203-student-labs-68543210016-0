@@ -10,7 +10,7 @@
 
 - Repository: https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0
 - Pull Request: TODO
-- GitHub Pages: TODO
+- GitHub Pages: (https://panupongthongdee.github.io/engse203-student-labs-68543210016-0/labs/week-04/)
 
 ## Component Tree
 
