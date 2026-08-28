@@ -4,7 +4,7 @@
   "status": "submitted",
   "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/main/labs/week-05/source",
   "originalCommit": "175f663",
-  "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/11",
+  "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/13",
   "submissionTag": "lab-05-submission-v1",
   "testStatus": "pass",
   "notes": "TODO 5A-5B: React/Vite build output ต้องอยู่ใน publish/ ก่อนสร้าง Pages Hub"
