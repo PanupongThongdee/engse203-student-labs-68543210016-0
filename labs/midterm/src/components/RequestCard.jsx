@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function RequestCard({ request, onDeleteRequest }) {
+function RequestCard({ request, onDeleteRequest, onMarkDone }) {
   return (
     <article className="request-card">
       <div>
@@ -11,9 +11,29 @@ function RequestCard({ request, onDeleteRequest }) {
         {/* TODO B4: แทน {request.priority} ด้านล่างด้วย <PriorityBadge priority={request.priority} /> ที่คุณสร้าง */}
         <p><span className={`badge ${request.status}`}>{request.status}</span> · {request.priority}</p>
       </div>
-      <button className="button danger" type="button" onClick={() => onDeleteRequest(request.id)} aria-label={`ลบคำร้อง ${request.id}`}>
-        ลบ
-      </button>
+      
+      <div className="card-actions" style={{ display: 'flex', gap: '0.5rem' }}>
+        {/* CP-B3.1: แสดงปุ่ม "ทำเสร็จ" เฉพาะคำร้องที่สถานะยังไม่เป็น completed */}
+        {request.status !== 'completed' && (
+          <button
+            className="button primary"
+            type="button"
+            onClick={() => onMarkDone(request.id)}
+            aria-label={`ทำเสร็จคำร้อง ${request.id}`}
+          >
+            ทำเสร็จ
+          </button>
+        )}
+
+        <button
+          className="button danger"
+          type="button"
+          onClick={() => onDeleteRequest(request.id)}
+          aria-label={`ลบคำร้อง ${request.id}`}
+        >
+          ลบ
+        </button>
+      </div>
     </article>
   );
 }
