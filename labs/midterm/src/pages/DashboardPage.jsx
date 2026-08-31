@@ -6,7 +6,8 @@ import LoadingState from '../components/LoadingState.jsx';
 import RequestList from '../components/RequestList.jsx';
 import SummaryPanel from '../components/SummaryPanel.jsx';
 import useManualReload from '../hooks/useManualReload.js';
-import { deleteRequest, getRequests, resetRequests } from '../services/requestService.js';
+// 1. เพิ่ม updateRequestStatus ใน import
+import { deleteRequest, getRequests, resetRequests, updateRequestStatus } from '../services/requestService.js';
 
 function DashboardPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,7 +16,7 @@ function DashboardPage() {
   const [loadState, setLoadState] = useState('idle');
   const [requests, setRequests] = useState([]);
   const [statusFilter, setStatusFilter] = useState('all');
-  const [searchQuery, setSearchQuery] = useState(''); // TODO B2: เพิ่ม state สำหรับข้อความค้นหา ที่นี่
+  const [searchQuery, setSearchQuery] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [notice, setNotice] = useState('');
 
@@ -43,17 +44,13 @@ function DashboardPage() {
 
   const summary = useMemo(() => ({
     total: requests.length,
-
     pending: requests.filter((request) => request.status === 'pending').length,
     inProgress: requests.filter((request) => request.status === 'in-progress').length,
     completed: requests.filter((request) => request.status === 'completed').length,
   }), [requests]);
 
   const filteredRequests = requests.filter((request) => {
-    // 1. กรองตามสถานะ ( statusFilter )
     const matchesStatus = statusFilter === 'all' || request.status === statusFilter;
-
-    // 2. กรองตามชื่อผู้แจ้ง หรือ รายละเอียด ( searchQuery ) แบบไม่สนตัวพิมพ์เล็ก-ใหญ่
     const query = searchQuery.trim().toLowerCase();
     const matchesSearch =
       query === '' ||
@@ -66,6 +63,17 @@ function DashboardPage() {
   function handleRetry() {
     if (scenario) setSearchParams({});
     else reload();
+  }
+
+  // CP-B3.2: สร้าง handler สำหรับปุ่ม "ทำเสร็จ"
+  async function handleMarkDone(requestId) {
+    try {
+      const updatedRequests = await updateRequestStatus(requestId, 'completed');
+      setRequests(updatedRequests); // อัปเดต state ทำให้ UI + SummaryPanel เปลี่ยนทันที
+      setNotice(`อัปเดตสถานะคำร้อง ${requestId} เป็น completed แล้ว`);
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : 'อัปเดตสถานะไม่สำเร็จ');
+    }
   }
 
   async function handleDelete(requestId) {
@@ -110,8 +118,7 @@ function DashboardPage() {
           <SummaryPanel summary={summary} />
           <section className="panel" aria-labelledby="request-list-title">
             <div className="section-heading"><h2 id="request-list-title">รายการคำร้อง</h2><FilterBar value={statusFilter} onFilterChange={setStatusFilter} /></div>
-            {/* TODO B2: วางช่อง <input> ค้นหา ตรงนี้ (เหนือรายการ) แล้วกรองร่วมกับตัวกรองสถานะ */}
-            <div className="search-bar" style={{ marginBottom: '1rem' }}>{/* TODO B2: วางช่อง <input> ค้นหา ตรงนี้ (เหนือรายการ) แล้วกรองร่วมกับตัวกรองสถานะ */}
+            <div className="search-bar" style={{ marginBottom: '1rem' }}>
               <input
                 type="text"
                 placeholder="ค้นหาจากผู้แจ้งหรือรายละเอียด"
@@ -121,13 +128,17 @@ function DashboardPage() {
               />
             </div>
 
-            {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
             {filteredRequests.length === 0 ? (
               <p className="empty-search-message" style={{ textAlign: 'center', padding: '2rem 0', color: '#666' }}>
                 ไม่พบคำร้องที่ตรงกับการค้นหา
               </p>
             ) : (
-              <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} />
+              /* CP-B3.2: ส่ง onMarkDone={handleMarkDone} ให้กับ RequestList */
+              <RequestList
+                requests={filteredRequests}
+                onDeleteRequest={handleDelete}
+                onMarkDone={handleMarkDone}
+              />
             )}
           </section>
         </>
