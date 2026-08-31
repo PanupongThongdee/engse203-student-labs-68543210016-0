@@ -49,9 +49,19 @@ function DashboardPage() {
     completed: requests.filter((request) => request.status === 'completed').length,
   }), [requests]);
 
-  const filteredRequests = statusFilter === 'all'
-    ? requests
-    : requests.filter((request) => request.status === statusFilter);
+ const filteredRequests = requests.filter((request) => {
+    // 1. กรองตามสถานะ ( statusFilter )
+    const matchesStatus = statusFilter === 'all' || request.status === statusFilter;
+
+    // 2. กรองตามชื่อผู้แจ้ง หรือ รายละเอียด ( searchQuery ) แบบไม่สนตัวพิมพ์เล็ก-ใหญ่
+    const query = searchQuery.trim().toLowerCase();
+    const matchesSearch =
+      query === '' ||
+      request.requesterName.toLowerCase().includes(query) ||
+      request.details.toLowerCase().includes(query);
+
+    return matchesStatus && matchesSearch;
+  });
 
   function handleRetry() {
     if (scenario) setSearchParams({});
