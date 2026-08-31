@@ -49,7 +49,7 @@ function DashboardPage() {
     completed: requests.filter((request) => request.status === 'completed').length,
   }), [requests]);
 
- const filteredRequests = requests.filter((request) => {
+  const filteredRequests = requests.filter((request) => {
     // 1. กรองตามสถานะ ( statusFilter )
     const matchesStatus = statusFilter === 'all' || request.status === statusFilter;
 
@@ -120,8 +120,15 @@ function DashboardPage() {
                 data-testid="search-input"
               />
             </div>
+
             {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
-            <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} />
+            {filteredRequests.length === 0 ? (
+              <p className="empty-search-message" style={{ textAlign: 'center', padding: '2rem 0', color: '#666' }}>
+                ไม่พบคำร้องที่ตรงกับการค้นหา
+              </p>
+            ) : (
+              <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} />
+            )}
           </section>
         </>
       )}
