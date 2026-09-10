@@ -351,24 +351,24 @@ git push origin lab-06-submission-v1
 
 ### โค้ด
 
-- [ ] `npm run check` ได้อย่างน้อย **25/28**
-- [ ] `npm run dev` เปิดได้ไม่มี error
-- [ ] service ไม่มี `req` หรือ `res`
-- [ ] เพิ่มคำร้อง → รีสตาร์ทเซิร์ฟเวอร์ → ข้อมูลยังอยู่
+- [x] `npm run check` ได้อย่างน้อย **25/28**
+- [x] `npm run dev` เปิดได้ไม่มี error
+- [x] service ไม่มี `req` หรือ `res`
+- [x] เพิ่มคำร้อง → รีสตาร์ทเซิร์ฟเวอร์ → ข้อมูลยังอยู่
 
 ### หลักฐาน
 
-- [ ] `evidence/API_TEST.md` กรอกครบ 8 รายการ **ตามผลจริง**
-- [ ] Screenshot 3 ภาพใน `evidence/images/`
-- [ ] Postman collection อยู่ใน `evidence/`
-- [ ] `AI_USAGE.md` กรอกแล้ว (ถ้าใช้ AI)
+- [x] `evidence/API_TEST.md` กรอกครบ 8 รายการ **ตามผลจริง**
+- [x] Screenshot 3 ภาพใน `evidence/images/`
+- [x] Postman collection อยู่ใน `evidence/`
+- [x] `AI_USAGE.md` กรอกแล้ว (ถ้าใช้ AI)
 
 ### Git
 
-- [ ] `.gitignore` มี `node_modules/` และ `data/requests.json`
-- [ ] `git status` สะอาด ไม่มีไฟล์ค้าง
-- [ ] push ขึ้น branch `unit3/week-06`
-- [ ] tag `lab-06-submission-v1`
+- [x] `.gitignore` มี `node_modules/` และ `data/requests.json`
+- [x] `git status` สะอาด ไม่มีไฟล์ค้าง
+- [x] push ขึ้น branch `unit3/week-06`
+- [x] tag `lab-06-submission-v1`
 
 ---
 

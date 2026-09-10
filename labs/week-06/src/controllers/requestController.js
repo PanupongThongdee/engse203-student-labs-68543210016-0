@@ -1,5 +1,5 @@
 import * as service from '../services/requestService.js';
-
+import { updateStatus } from '../services/requestService.js'; // ปรับ path ตามโครงสร้างไฟล์ของคุณ
 /**
  * controller รู้จัก req/res และเป็นคนตัดสิน status code
  * แต่ไม่จัดการข้อมูลเอง — ให้ service ทำ
@@ -34,28 +34,60 @@ export function getRequest(req, res) {
  * - เรียก service.create() แล้วตอบ 201 พร้อมคำร้องที่สร้าง
  * ⚠ POST สำเร็จตอบ 201 ไม่ใช่ 200
  */
-export function createRequest(req, res) {
- const created = service.create(req.body);
-  res.status(201).json(created);
+export async function createRequest(req, res, next) {
+  try {
+    const created = await service.create(req.body); // 👈 ใส่ await เพื่อดึงข้อมูลจริง
+    res.status(201).json(created);
+  } catch (error) {
+    next(error);
+  }
 }
-
 /**
  * TODO W06-C4 (⭐ Challenge) · PUT /api/requests/:id
  * - status ที่รับได้: 'pending' | 'in-progress' | 'completed'
  * - status ไม่ถูกต้อง → 400 · ไม่พบคำร้อง → 404 · สำเร็จ → 200
  */
-export function updateRequestStatus(req, res) {
-  throw new Error('TODO W06-C4: updateRequestStatus');
+export async function updateRequestStatus(req, res) {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  // 1. ตรวจสอบ status ที่รับเข้ามา
+  const validStatuses = ['pending', 'in-progress', 'completed'];
+  if (!status || !validStatuses.includes(status)) {
+    return res.status(400).json({
+      error: 'Invalid status',
+      message: 'Status must be pending, in-progress, or completed'
+    });
+  }
+
+  // 2. เรียกใช้ฟังก์ชันจาก Service เพื่อทำการอัปเดตข้อมูล
+  const updatedRequest = await updateStatus(id, status);
+
+  // 3. หากไม่พบคำร้อง (Service คืนค่า null)
+  if (!updatedRequest) {
+    return res.status(404).json({
+      error: 'Not found',
+      message: `Request with id ${id} not found`
+    });
+  }
+
+  // 4. สำเร็จ ส่งตอบกลับ status 200 พร้อมข้อมูล
+  return res.status(200).json(updatedRequest); 
+  
 }
 
 /**
  * TODO W06-C5 (CP05) · DELETE /api/requests/:id
  * - ไม่พบ → 404 · ลบสำเร็จ → 204 (ไม่มีข้อมูลส่งกลับ ใช้ res.status(204).end())
  */
-export function deleteRequest(req, res) {
-  const deleted = service.remove(req.params.id);
-  if (!deleted) {
-    return res.status(404).json({ error: `ไม่พบคำร้องรหัส ${req.params.id}` });
+export async function deleteRequest(req, res, next) {
+  try {
+    const deleted = await service.remove(req.params.id); // 👈 ใส่ await
+    if (!deleted) {
+      return res.status(404).json({ error: `ไม่พบคำร้องรหัส ${req.params.id}` });
+    }
+    res.status(204).end();
+  } catch (error) {
+    next(error);
   }
-  res.status(204).end();
 }
