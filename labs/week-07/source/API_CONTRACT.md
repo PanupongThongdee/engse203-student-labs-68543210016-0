@@ -11,7 +11,7 @@
 
 | หัวข้อ | รายละเอียด |
 |---|---|
-| **ชื่อระบบ** | Campus Service Request API |
+| **ชื่อระบบ** | Campus Service Request API|
 | **เวอร์ชัน** | 2.0.0 |
 | **Base URL (พัฒนา)** | `http://localhost:3001` |
 | **Base URL (ใช้งานจริง)** | ` http://localhost:5176/` |
