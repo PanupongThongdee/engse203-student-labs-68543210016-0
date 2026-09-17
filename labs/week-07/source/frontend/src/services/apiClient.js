@@ -11,7 +11,12 @@
  *   ถ้าตั้งชื่อว่า API_BASE_URL เฉย ๆ จะได้ undefined
 //  */
 // const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3001';
-const BASE_URL = 'https://engse203-student-labs-68543210016-0.onrender.com';
+// ถ้า localhost -> ใช้ localhost URL
+// ถ้า GitHub Pages -> ใช้ Render URL
+const BASE_URL = process.env.NODE_ENV === 'development' 
+  ? 'http://localhost:3001' 
+  : 'https://engse203-student-labs-68543210016-0.onrender.com';
+  
 /** error ที่รู้ว่ามาจาก API พร้อม status ที่ได้กลับมา — ให้มาแล้ว */
 export class ApiError extends Error {
   constructor(message, status) {
