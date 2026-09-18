@@ -1,5 +1,5 @@
 /** จับ error ที่หลุดมาจากทุก route — ต้องมี 4 พารามิเตอร์ Express ถึงจะรู้ว่าเป็น error handler */
-import { config } from '../config.js';
+import { config } from './config.js';
 
 export function errorHandler(err, req, res, next) {
   const status = err.status ?? 500;
