@@ -13,7 +13,7 @@
 // const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3001';
 // ถ้า localhost -> ใช้ localhost URL
 // ถ้า GitHub Pages -> ใช้ Render URL
-const BASE_URL = 'https://engse203-student-labs-68543210016-0.onrender.com';
+const BASE_URL = '';
 /** error ที่รู้ว่ามาจาก API พร้อม status ที่ได้กลับมา — ให้มาแล้ว */
 
 export class ApiError extends Error {
