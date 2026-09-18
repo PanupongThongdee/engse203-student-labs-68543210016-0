@@ -1,4 +1,6 @@
 /** จับ error ที่หลุดมาจากทุก route — ต้องมี 4 พารามิเตอร์ Express ถึงจะรู้ว่าเป็น error handler */
+import { config } from './config.js';
+
 export function errorHandler(err, req, res, next) {
   const status = err.status ?? 500;
 
@@ -6,7 +8,8 @@ export function errorHandler(err, req, res, next) {
     console.error('เกิดข้อผิดพลาดภายใน:', err.message);
   }
 
-  if (!found) throw new AppError('ไม่พบคำร้อง', 404);
+  // if (!found) throw new AppError('ไม่พบคำร้อง', 404);
+  // config.isProduction 
 
   res.status(status).json({
     error: status >= 500 ? 'เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์' : err.message,

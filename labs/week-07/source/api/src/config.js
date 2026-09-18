@@ -14,8 +14,8 @@ import 'dotenv/config';
 export const config = {
   port: Number(process.env.PORT ?? 3001),
   corsOrigin: process.env.CORS_ORIGIN
-  ? process.env. CORS_ORIGIN. split(',').map(s => s.trim())
+  ? process.env.CORS_ORIGIN.split(',').map(s => s.trim())
   : ['http://localhost:5173', ' https://panupongthongdee.github.io'],
-  nodeEnv: process.env.NODE_ENV ?? 'development',
+  nodeEnv:process.env.NODE_ENV ?? 'development',
   get isProduction() {return this.nodeEnv === 'production'; },
 };
