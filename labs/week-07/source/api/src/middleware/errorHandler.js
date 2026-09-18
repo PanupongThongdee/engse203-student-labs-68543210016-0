@@ -8,7 +8,8 @@ export function errorHandler(err, req, res, next) {
     console.error('เกิดข้อผิดพลาดภายใน:', err.message);
   }
 
-  if (!found) throw new AppError('ไม่พบคำร้อง', 404);
+  // if (!found) throw new AppError('ไม่พบคำร้อง', 404);
+  // config.isProduction 
 
   res.status(status).json({
     error: status >= 500 ? 'เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์' : err.message,
