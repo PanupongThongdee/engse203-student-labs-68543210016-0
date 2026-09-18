@@ -15,7 +15,7 @@
 // ถ้า GitHub Pages -> ใช้ Render URL
 const BASE_URL = import.meta.env.MODE === 'development'
   ? 'http://localhost:3001'
-  : 'https://engse203-student-labs-68543210016-0.onrender.com';
+  : '';
 /** error ที่รู้ว่ามาจาก API พร้อม status ที่ได้กลับมา — ให้มาแล้ว */
 
 export class ApiError extends Error {
