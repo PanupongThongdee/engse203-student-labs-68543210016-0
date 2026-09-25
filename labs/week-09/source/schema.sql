@@ -9,6 +9,12 @@
 
 PRAGMA foreign_keys = ON;
 
+DROP TABLE IF EXISTS requests;
+DROP TABLE IF EXISTS users;
+
+
+
+
 -- TODO ①  ลบตารางเดิมก่อน เพื่อให้รันไฟล์นี้ซ้ำได้
 --         ⚠ ลำดับสำคัญ — ต้องลบตารางที่มี foreign key ก่อน
 --         คำใบ้: DROP TABLE IF EXISTS ...
@@ -68,7 +74,12 @@ INSERT INTO users (name, department, email) VALUES
   ('สมชาย ใจดี',      'วิศวกรรมซอฟต์แวร์', 'somchai@rmutl.ac.th'),
   ('สุภาวดี รักเรียน', 'วิศวกรรมซอฟต์แวร์', 'supawadee@rmutl.ac.th'),
   ('ธนกฤต ตั้งใจ',     'วิศวกรรมไฟฟ้า',     'thanakrit@rmutl.ac.th'),
-  ('ปรียา ขยันยิ่ง',   'สำนักวิทยบริการ',   'preeya@rmutl.ac.th');
+  ('ปรียา ขยันยิ่ง',   'สำนักวิทยบริการ',   'preeya@rmutl.ac.th'),
+  ('อรทัย ใจงาม',     'ภาควิชาคอมพิวเตอร์', 'oratai@rmutl.ac.th'),
+  ('วรินทร ใจดี',     'ภาควิชาคอมพิวเตอร์', 'warint@rmutl.ac.th'),
+  ('กิตติพงษ์ ตั้งใจ',  'ภาควิชาคอมพิวเตอร์', 'kittipong@rmutl.ac.th'),
+('พิมพ์ใจ ใจงาม',    'ภาควิชาคอมพิวเตอร์', 'pimchai@rmutl.ac.th');
+
 
 
   INSERT INTO requests (id, requester_id, request_type, location, details, priority, status) VALUES
@@ -76,7 +87,10 @@ INSERT INTO users (name, department, email) VALUES
   ('REQ-002', 2, 'บริการบัญชีผู้ใช้', 'อาคารวิศวกรรม',      'เข้าสู่ระบบห้องปฏิบัติการไม่ได้',     'normal', 'in-progress'),
   ('REQ-003', 3, 'ขอใช้อุปกรณ์',      'ห้องประชุม 2',        'ขอยืมโปรเจกเตอร์',                 'normal', 'completed'),
   ('REQ-004', 1, 'แจ้งซ่อม',          'ห้องปฏิบัติการ 302', 'คอมพิวเตอร์เครื่องที่ 5 เปิดไม่ติด', 'urgent', 'pending'),
-  ('REQ-005', 4, 'อื่น ๆ',             'ห้องสมุด ชั้น 2',     'ขอเพิ่มปลั๊กไฟบริเวณโต๊ะอ่านหนังสือ', 'normal', 'pending');
+  ('REQ-005', 4, 'อื่น ๆ',             'ห้องสมุด ชั้น 2',     'ขอเพิ่มปลั๊กไฟบริเวณโต๊ะอ่านหนังสือ', 'normal', 'pending'),
+  ('REQ-006', 2, 'แจ้งซ่อม', 'ห้องปฏิบัติการ 401', 'ไฟในห้องกะพริบตลอดเวลา', 'normal', 'pending'),
+  ('REQ-007', 3, 'ขอใช้อุปกรณ์', 'ห้องประชุม 1', 'ขอยืมไมโครโฟนสำหรับการประชุม', 'urgent', 'in-progress'),
+  ('REQ-008', 4, 'บริการบัญชีผู้ใช้', 'อาคารสำนักวิทยบริการ', 'ไม่สามารถเข้าถึงฐานข้อมูลออนไลน์ได้', 'normal', 'pending');
 
 
   
