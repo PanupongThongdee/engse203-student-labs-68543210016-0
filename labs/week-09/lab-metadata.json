@@ -3,8 +3,8 @@
   "title": "Database AND SQLite relational",
   "status": "submitted",
   "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/main/labs/week-09/source",
-  "originalCommit": "",
-  "pullRequestUrl": "",
+  "originalCommit": "393ed8fa016a2d5e8dba79a4bdd1e0a052b5e23c",
+  "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/32",
   "submissionTag": "lab-09-submission-v1",
   "testStatus": "pass",
   "notes": "Successfully created the relational database schema with users and requests tables, configured foreign keys and constraints, and passed all 30/30 test validation checks."
