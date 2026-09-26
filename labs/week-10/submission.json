@@ -4,7 +4,7 @@
   "status": "submitted",
   "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/main/labs/week-07/source",
   "originalCommit": "b8946a2e47f2b879aff7d86e59d7137b7db3508a",
-  "pullRequestUrl": "",
+  "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/35",
   "submissionTag": "lab-10-submission-v1",
   "testStatus": "pass",
   "notes": "เชื่อม Node เข้ากับ SQLite ป้องกัน SQL Injection errorHanding Test ด้วย Supertest และ Node check ครบ 31/31 list"
