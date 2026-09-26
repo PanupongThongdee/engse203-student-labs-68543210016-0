@@ -106,20 +106,35 @@ function nextId() {
 }
 
 export function create(input) {
-  const id = nextId();
-  db.prepare(
-    `INSERT INTO requests (id, requester_id, request_type, location, details, priority)
-     VALUES (?, ?, ?, ?, ?, ?)`
-  ).run(
-    id,
-    resolveUserId(input.requesterName.trim()),
-    input.requestType,
-    input.location.trim(),
-    input.details.trim(),
-    input.priority ?? 'normal'
-  );
-  return findById(id);   // คืนรูปแบบที่ frontend ต้องการ
+
+  const id = nextId(); 
+  db.exec('BEGIN'); 
+  
+  try {
+    const requesterId = resolveUserId(input.requesterName.trim());
+    
+    db.prepare(`
+      INSERT INTO requests (id, requester_id, request_type, location, details, priority)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `).run(
+      id,
+      requesterId,
+      input.requestType,
+      input.location,
+      input.details,
+      input.priority
+    );
+
+    db.exec('COMMIT'); 
+    return findById(id); 
+    
+  } catch (err) {
+    db.exec('ROLLBACK');
+    throw err;
+  }
+  return findById(id);
 }
+
 
 export function updateStatus(id, status) {
   const result = db.prepare('UPDATE requests SET status = ? WHERE id = ?')
