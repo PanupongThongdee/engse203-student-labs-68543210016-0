@@ -55,7 +55,7 @@ async function openDatabase() {
 
 export async function loadSeed() {
   db = await openDatabase();
-  db = new DatabaseSync(DB_FILE);
+  // db = new DatabaseSync(DB_FILE);
   db.exec('PRAGMA foreign_keys = ON');   // ⚠ ต้องเปิดทุกครั้งที่เปิดฐานข้อมูล
   // ถ้ายังไม่มีตาราง (ไฟล์ฐานข้อมูลใหม่) ให้สร้างจาก schema.sql
   const ready = db.prepare(
