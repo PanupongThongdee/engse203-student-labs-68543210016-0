@@ -5,3 +5,19 @@
 
 ระบบตั้งต้นจากสัปดาห์ที่ 10 (React + Express + SQLite)
 งานสัปดาห์นี้: ทำให้ **พร้อมใช้จริง** — config, health check, error handling, build, deploy
+
+```markdown
+## สถาปัตยกรรม 3 ชั้น
+
+┌─────────┐  HTTP   ┌──────────┐  SQL   ┌─────────┐
+│ React   │ ──────► │ Express  │ ─────► │ SQLite  │
+└─────────┘  JSON   └──────────┘  rows  └─────────┘
+
+| ชั้น | หน้าที่ | โฟลเดอร์ |
+|---|---|---|
+| Frontend | หน้าจอผู้ใช้ | frontend/ |
+| API | route · controller · service | api/src/ |
+| Database | เก็บข้อมูล | api/data/ |
+```
+
+
