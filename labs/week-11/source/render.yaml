@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: campus-service-68543210016
+    runtime: node
+    plan: free
+    region: singapore
+    rootDir: labs/week-11/source
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
