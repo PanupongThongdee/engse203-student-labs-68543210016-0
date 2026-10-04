@@ -18,7 +18,7 @@ const API_ROOT = path.resolve(HERE, '../..');
 const DB_FILE = process.env.DB_FILE ?? path.join(API_ROOT, 'data', 'campus.db');
 const SCHEMA_FILE = path.join(API_ROOT, 'data', 'schema.sql');
 
-let db;
+
 
 /**
  * คืนข้อมูลในรูปแบบเดียวกับที่ API เคยส่งตั้งแต่ Week 05
@@ -36,7 +36,25 @@ const SELECT_SHAPE = `
   FROM requests r
   JOIN users u ON u.id = r.requester_id`;
 
+let db;
+let driver = 'sqlite';
+
+// ไม่มี TURSO_DATABASE_URL → ไฟล์ campus.db ในเครื่อง (เหมือนเดิม)
+// มี TURSO_DATABASE_URL    → ต่อ Turso ผ่านเน็ต
+async function openDatabase() {
+  const url = process.env.TURSO_DATABASE_URL;
+  if (url) {
+    // dynamic import — เครื่องที่ไม่ได้ติดตั้ง libsql (checker · npm test) ยังรันได้
+    const { default: Database } = await import('libsql');
+    driver = 'turso';
+    return new Database(url, { authToken: process.env.TURSO_AUTH_TOKEN });
+  }
+  driver = 'sqlite';
+  return new DatabaseSync(DB_FILE);
+}
+
 export async function loadSeed() {
+  db = await openDatabase();
   db = new DatabaseSync(DB_FILE);
   db.exec('PRAGMA foreign_keys = ON');   // ⚠ ต้องเปิดทุกครั้งที่เปิดฐานข้อมูล
   // ถ้ายังไม่มีตาราง (ไฟล์ฐานข้อมูลใหม่) ให้สร้างจาก schema.sql

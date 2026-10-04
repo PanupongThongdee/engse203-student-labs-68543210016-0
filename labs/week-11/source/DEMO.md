@@ -10,5 +10,5 @@
 - [x] config · health check · production vs dev
 
 ## Live Demo (ถ้าทำ Challenge)
-🔗 https://xxxx.onrender.com
+🔗 https://campus-service-68543210016.onrender.com
 ฐานข้อมูล: SQLite ไฟล์ (รีเซ็ตเมื่อ restart) / Turso (ข้อมูลถาวร)
