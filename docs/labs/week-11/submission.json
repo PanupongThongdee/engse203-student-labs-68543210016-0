@@ -1,0 +1,15 @@
+{
+  "week": "week-11",
+  "title": "Node.js DataBase Integration",
+  "status": "submitted",
+  "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/main/labs/week-11/source",
+  "originalCommit": "ec83079f95da95383117d5ecf59822f56eea07a",
+  "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/37",
+  "submissionTag": "lab-11-submission-v1",
+  "testStatus": "pass",
+  "notes": "เชื่อมต่อ Node.js เข้ากับ SQLite ด้วย node:sqlite, Data Mapping (JOIN/AS), Parameterized Queries ป้องกัน SQL Injection (CP31), Database Error Handling ด้วย AppError (CP32), Automated Testing ด้วย supertest (CP33), API Contract v2.0.0 (CP34), และ Challenge ครบถ้วน (31/31 รายการ)",
+  "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016-0/labs/week-11/",
+  "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/lab/week-11/labs/week-11/source",
+  "hasPublish": true,
+  "sourceEntries": 15
+}
