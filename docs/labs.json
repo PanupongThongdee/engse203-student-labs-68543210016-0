@@ -148,5 +148,20 @@
     "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/lab/week-11/labs/week-11/source",
     "hasPublish": true,
     "sourceEntries": 15
+  },
+  {
+    "week": "week-12",
+    "title": "Software Testing & Debugging (Vitest, Integration & Regression Testing)",
+    "status": "submitted",
+    "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/main/labs/week-12/source",
+    "originalCommit": " c5a9b70f2ede593dc44e502708f8c82af9e98dc9",
+    "pullRequestUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/pull/39/",
+    "submissionTag": "lab-12-submission-v1",
+    "testStatus": "pass",
+    "notes": "ออกแบบ Test Cases ตามหลัก Boundary Value Analysis และ Equivalence Partitioning (CP44), Pure Function Unit Testing ด้วย Vitest (CP45), Integration Testing ด้วย Supertest บน In-Memory Database (CP46), ดีบักและเขียน Regression Test ป้องกัน 4 Bugs (CP47) (20/22 รายการ)",
+    "pageUrl": "https://PanupongThongdee.github.io/engse203-student-labs-68543210016-0/labs/week-12/",
+    "sourceUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/lab/week-12/labs/week-12/source",
+    "hasPublish": true,
+    "sourceEntries": 18
   }
 ]
