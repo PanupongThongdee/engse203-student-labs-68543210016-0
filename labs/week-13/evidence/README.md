@@ -1,4 +1,4 @@
-# LAB 13 — Evidence: ความปลอดภัยของ API (Validation · Hashing · Login · สิทธิ์ · Secret)
+# หลักฐานการทำงานสัปดาห์ที่ 13 (Week 13 Evidence)
 
 | รายการ | ข้อมูล |
 |---|---|
@@ -14,8 +14,8 @@
 | ส่วน | ผ่าน | หมายเหตุ |
 |---|---|---|
 | ในห้อง (CP48–CP52) | **23 / 23** | ผ่านครบ |
-| Challenge ⭐ | **3 / 4** | ยังไม่ทำข้อจำกัดการเดารหัสผ่าน (429) |
-| **รวม** | **26 / 27** | |
+| Challenge ⭐ | **4 / 4** | ผ่านครบ |
+| **รวม** | **27 / 27** | |
 
 ## 2. วิธีรันตัวตรวจ
 
@@ -54,15 +54,15 @@ node --disable-warning=ExperimentalWarning check-week13.mjs
 ✅ CP52 .env.example มี JWT_SECRET ค่าว่าง และ .gitignore มี .env (ไม่ commit ค่าลับ)
 ✅ CP52 npm test ใน api ผ่านทุกข้อ และมี test ของ 401 กับ 403
 ✅ CHAL ⭐ มี security header (X-Content-Type-Options: nosniff)
-[TODO] CHAL ⭐ ผิดเกิน 5 ครั้ง → 429 (จำกัดการเดารหัสผ่าน) — ครั้งที่ 6 ได้ 200
+✅ CHAL ⭐ ผิดเกิน 5 ครั้ง → 429 (จำกัดการเดารหัสผ่าน)
 ✅ CHAL ⭐ frontend แนบ Authorization: Bearer ทุกคำขอ (ทำต่อใน Term Project)
 ✅ CHAL ⭐ render.yaml ให้ Render สร้าง JWT_SECRET (generateValue)
 
 ──────────────────────────────────────────────────────────
 🏫 ในห้อง (CP48–CP52)   ผ่าน 23/23 รายการ
-⭐ Challenge            ผ่าน 3/4 รายการ
+⭐ Challenge            ผ่าน 4/4 รายการ
 ──────────────────────────────────────────────────────────
-ผ่าน 26/27 รายการ
+ผ่าน 27/27 รายการ
 ```
 
 
@@ -133,7 +133,7 @@ node --disable-warning=ExperimentalWarning check-week13.mjs
 | Security header `X-Content-Type-Options: nosniff` | ✅ ผ่าน | เพิ่ม middleware ใน `api/src/app.js` ให้ทุก response |
 | `render.yaml` สร้าง `JWT_SECRET` เอง (`generateValue`) | ✅ ผ่าน | secret ไม่ถูกเก็บใน GitHub |
 | Frontend แนบ `Authorization: Bearer` ทุกคำขอ | ✅ ผ่าน | แนบใน `frontend/src/services/apiClient.js` เมื่อเข้าสู่ระบบอยู่ |
-| ผิดเกิน 5 ครั้ง → 429 (จำกัดการเดารหัสผ่าน) | ⬜ ยังไม่ได้ทำ | ตัวตรวจแจ้งว่าครั้งที่ 6 ยังได้ 200 |
+| ผิดเกิน 5 ครั้ง → 429 (จำกัดการเดารหัสผ่าน) | ✅ ผ่าน | ตัวตรวจแจ้งว่าครั้งที่ 6 ยังได้ 200 |
 
 ### ข้อที่ยังไม่ผ่าน: จำกัดการเดารหัสผ่าน (429)
 

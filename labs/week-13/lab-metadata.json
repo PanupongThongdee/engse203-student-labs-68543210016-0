@@ -1,0 +1,12 @@
+{
+  "week": "week-13",
+  "title": "Software Quality & Security (Validation, Password Hashing, JWT Auth, Role-Based Access Control)",
+  "status": "submitted",
+  "originalRepoUrl": "https://github.com/PanupongThongdee/engse203-student-labs-68543210016-0/tree/main/labs/week-13/source",
+  "originalCommit": "",
+  "pullRequestUrl": "",
+  "submissionTag": "lab-13-submission-v1",
+  "testStatus": "pass",
+  "notes": "Input Validation & Size Limit 10kb (CP48), Password Hashing ด้วย scrypt + random salt (CP49), เข้าสู่ระบบด้วย JWT พร้อมสิทธิ์ role: staff (CP50), Middleware ตรวจสอบสิทธิ์ authenticate และ requireRole ป้องกัน PUT/DELETE (CP51), Fail-fast บน Production เมื่อไม่มี JWT_SECRET (CP52), Security Header (X-Content-Type-Options: nosniff), Rate Limiter ป้องกันการเดารหัสผ่านเกิน 5 ครั้ง (HTTP 429), Frontend แนบ Bearer Token อัตโนมัติ, Render Blueprint generateValue สำหรับ JWT_SECRET, และ UI ระบบ Role-Based Access Control เต็มรูปแบบ (27/27 รายการ ผ่าน 100%)"
+ 
+}
