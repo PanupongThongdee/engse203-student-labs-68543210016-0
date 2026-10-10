@@ -13,7 +13,7 @@
  *   validateRequestInput(input) → [] ถ้าผ่าน · ['ข้อความ error', ...] ถ้าไม่ผ่าน
  */
 
-export const REQUEST_TYPES = ['แจ้งซ่อม', 'บริการบัญชีผู้ใช้', 'ขอใช้อุปกรณ์', 'อื่น ๆ'];
+export const REQUEST_TYPES = ['แจ้งซ่อม', 'ขอใช้ห้อง', 'บริการบัญชีผู้ใช้', 'อื่น ๆ'];
 export const PRIORITIES = ['normal', 'urgent'];
 export const STATUSES = ['pending', 'in-progress', 'completed'];
 
