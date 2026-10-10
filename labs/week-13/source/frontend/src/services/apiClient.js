@@ -1,3 +1,4 @@
+import { clearAuth, getToken } from './authStorage.js';
 /**
  * ตัวกลางสำหรับคุยกับ API — ที่เดียวที่เรียก fetch()
  * ทุกฟังก์ชันใน requestService เรียกผ่านตรงนี้
@@ -30,11 +31,17 @@ async function parseError(response) {
  * - ต่อ API ไม่ได้เลย → โยน ApiError status 0
  */
 export async function apiFetch(path, options = {}) {
+  const { headers, ...rest } = options;
+  const token = getToken();
   let response;
   try {
     response = await fetch(`${BASE_URL}${path}`, {
-      headers: { 'Content-Type': 'application/json', ...options.headers },
-      ...options,
+      ...rest,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...headers,
+      },
     });
   } catch {
     // fetch โยน error เมื่อต่อเซิร์ฟเวอร์ไม่ได้เลย เช่น API ไม่ได้เปิด
@@ -42,9 +49,12 @@ export async function apiFetch(path, options = {}) {
   }
 
   if (!response.ok) {
-    throw new ApiError(await parseError(response), response.status);
+  if (response.status === 401 && token && !path.startsWith('/api/auth/')) {
+    clearAuth();
+    window.dispatchEvent(new Event('auth:expired'));
   }
-
-  if (response.status === 204) return null;
+  throw new ApiError(await parseError(response), response.status);
+ }
+   if (response.status === 204) return null;
   return response.json();
 }
