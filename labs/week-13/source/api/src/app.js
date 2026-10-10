@@ -13,6 +13,11 @@ import authRoutes from './routes/authRoutes.js';
 export function createApp() {
   const app = express();
 
+    app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    next();
+    });
+
   // ① CORS — dev ใช้ (frontend 5173 เรียก API 3001 ข้ามพอร์ต)
   //    production ไม่จำเป็น เพราะเว็บกับ API อยู่ origin เดียวกัน แต่ใส่ไว้ไม่เสียหาย
   app.use(cors({ origin: config.corsOrigin }));
@@ -34,6 +39,7 @@ export function createApp() {
   app.use('/api/health', healthRoutes);
    app.use('/api/auth', authRoutes);
   // 🏫 TODO W13-LOGIN (CP50): import authRoutes แล้วผูกที่ /api/auth
+  
   app.use('/api/requests', requestRoutes);
   app.use('/api/users', userRoutes);
  
